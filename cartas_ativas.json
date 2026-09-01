@@ -1,7 +1,7 @@
 [
   {
     "id": "AJ-IMOV-00",
-    "administradora": "Caixa / Porto Seguro",
+    "administradora": "Caixa Consórcios",
     "segmento": "Imóvel",
     "titulo": "Imóvel Residencial de Alto Padrão",
     "credito_valor": 5000000,
@@ -19,7 +19,7 @@
   },
   {
     "id": "AJ-AUTO-00",
-    "administradora": "Rodobens / Santander",
+    "administradora": "Rodobens",
     "segmento": "Automóvel",
     "titulo": "Audi Q5 Black Edition 2026",
     "credito_valor": 480000,
@@ -145,9 +145,9 @@
   },
   {
     "id": "AJ-AUTO-03",
-    "administradora": "Yamaha / Porto",
+    "administradora": "Yamaha",
     "segmento": "Automóvel",
-    "titulo": "Crédito para Veículos Premium & Utilitários",
+    "titulo": "Crédito para Veículos & Utilitários",
     "credito_valor": 680000,
     "credito_formatado": "R$ 680.000,00",
     "entrada_valor": 235000,

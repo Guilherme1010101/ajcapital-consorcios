@@ -457,7 +457,7 @@ function getFallbackCartas() {
       "id": "AJ-AUTO-01",
       "administradora": "Rodobens",
       "segmento": "Automóvel",
-      "titulo": "Supercarro / SUV Premium Exclusivo",
+      "titulo": "SUV Premium / Veículo Executivo",
       "credito_valor": 450000,
       "credito_formatado": "R$ 450.000,00",
       "entrada_valor": 155000,
