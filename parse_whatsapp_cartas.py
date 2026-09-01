@@ -1,4 +1,8 @@
-[
+import json
+import re
+
+cartas = [
+  # 1. União Catarinense
   {
     "id": "ROMAR-UC-01",
     "administradora": "União Catarinense",
@@ -14,7 +18,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Aceita imóvel não averbado"
   },
   {
@@ -32,7 +36,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Aceita imóvel não averbado"
   },
   {
@@ -50,7 +54,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Aceita imóvel não averbado"
   },
   {
@@ -68,7 +72,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Fatura não averbado"
   },
   {
@@ -86,7 +90,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Fatura não averbado"
   },
   {
@@ -104,7 +108,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Fatura não averbado"
   },
   {
@@ -122,7 +126,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Fatura não averbado"
   },
   {
@@ -140,9 +144,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "11/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Aceita imóvel não averbado"
   },
+
+  # 2. HS Consórcios
   {
     "id": "ROMAR-HS-01",
     "administradora": "HS Consórcios",
@@ -158,7 +164,7 @@
     "transferencia": "Taxa R$ 5.548,81",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Curto Prazo • 47 meses"
   },
   {
@@ -176,7 +182,7 @@
     "transferencia": "Taxa R$ 14.933,00",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada 32% • Avaliação R$ 1.043.000"
   },
   {
@@ -194,7 +200,7 @@
     "transferencia": "Taxa R$ 50.903,00",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Alto Volume • Avaliação R$ 3.788.500"
   },
   {
@@ -212,7 +218,7 @@
     "transferencia": "Taxa R$ 41.643,00",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Avaliação R$ 3.204.250"
   },
   {
@@ -230,7 +236,7 @@
     "transferencia": "Taxa R$ 29.077,20",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada 38% • Avaliação R$ 1.695.105"
   },
   {
@@ -248,7 +254,7 @@
     "transferencia": "Taxa R$ 8.425,39",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Somente 32,5% de Entrada"
   },
   {
@@ -266,7 +272,7 @@
     "transferencia": "Taxa R$ 6.052,00",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada 38,5%"
   },
   {
@@ -284,7 +290,7 @@
     "transferencia": "Taxa R$ 9.172,00",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": false,
+    "destaque": False,
     "tag": "Avaliação R$ 658.730"
   },
   {
@@ -302,7 +308,7 @@
     "transferencia": "Taxa R$ 2.278,68",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Parcela Baixa"
   },
   {
@@ -320,7 +326,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 173.848"
   },
   {
@@ -338,7 +344,7 @@
     "transferencia": "Taxa R$ 700,00",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada Menos de 20k"
   },
   {
@@ -356,7 +362,7 @@
     "transferencia": "Taxa R$ 1.768,46",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 110.883"
   },
   {
@@ -374,9 +380,11 @@
     "transferencia": "Taxa R$ 1.536,00",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 121.728"
   },
+
+  # 3. Porto Seguro
   {
     "id": "ROMAR-PORTO-01",
     "administradora": "Porto Seguro",
@@ -392,7 +400,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "36% Entrada • Mais Barato que Financiamento"
   },
   {
@@ -410,7 +418,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "35% de Entrada"
   },
   {
@@ -428,7 +436,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Alto Volume Patrimonial"
   },
   {
@@ -446,7 +454,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Imóvel Residencial / Comercial"
   },
   {
@@ -464,7 +472,7 @@
     "transferencia": "Taxa R$ 6.101,16",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": false,
+    "destaque": False,
     "tag": "Transferência Rápida"
   },
   {
@@ -482,7 +490,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Parcela Suave"
   },
   {
@@ -500,9 +508,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Parcela R$ 530"
   },
+
+  # 4. Caixa Consórcios
   {
     "id": "ROMAR-CAIXA-01",
     "administradora": "Caixa Consórcios",
@@ -518,7 +528,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Patrimônio Caixa"
   },
   {
@@ -536,7 +546,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Imóvel Residencial / Comercial"
   },
   {
@@ -554,7 +564,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Saldo R$ 1.557.075"
   },
   {
@@ -572,7 +582,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "39% de Entrada"
   },
   {
@@ -590,7 +600,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Excelente Custo Benefício"
   },
   {
@@ -608,7 +618,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "35% de Entrada"
   },
   {
@@ -626,9 +636,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Curto Prazo • 31 meses"
   },
+
+  # 5. Yamaha
   {
     "id": "ROMAR-YAMAHA-01",
     "administradora": "Yamaha",
@@ -644,7 +656,7 @@
     "transferencia": "Taxa 0,66% a.m",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Taxa Reduzida 0,66% a.m"
   },
   {
@@ -662,7 +674,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Saldo R$ 954.979"
   },
   {
@@ -680,7 +692,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 16/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 506.700"
   },
   {
@@ -698,9 +710,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Parcela R$ 385"
   },
+
+  # 6. Rodobens
   {
     "id": "ROMAR-RODO-01",
     "administradora": "Rodobens",
@@ -716,7 +730,7 @@
     "transferencia": "1% do próprio crédito",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Transf. 1% Paga pelo Crédito"
   },
   {
@@ -734,7 +748,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Prazo Curto • 48 meses"
   },
   {
@@ -752,7 +766,7 @@
     "transferencia": "1% do próprio crédito",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 272.712"
   },
   {
@@ -770,9 +784,11 @@
     "transferencia": "Na Procuração",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada R$ 56.900"
   },
+
+  # 7. Itaú Consórcios
   {
     "id": "ROMAR-ITAU-01",
     "administradora": "Itaú Consórcios",
@@ -788,7 +804,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 08/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Tradição Itaú"
   },
   {
@@ -806,7 +822,7 @@
     "transferencia": "Taxa R$ 3.250,00",
     "vencimento": "Dia 08/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "40% de Entrada"
   },
   {
@@ -824,7 +840,7 @@
     "transferencia": "Taxa R$ 650,00",
     "vencimento": "Dia 20/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada R$ 46.842"
   },
   {
@@ -842,9 +858,11 @@
     "transferencia": "Taxa R$ 650,00",
     "vencimento": "Dia 05/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Transferência R$ 650"
   },
+
+  # 8. Bradesco
   {
     "id": "ROMAR-BRAD-01",
     "administradora": "Bradesco",
@@ -860,7 +878,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Prazo 83 meses"
   },
   {
@@ -878,7 +896,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 663.861"
   },
   {
@@ -896,9 +914,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Curto Prazo • 43 meses"
   },
+
+  # 9. Santander
   {
     "id": "ROMAR-SANT-01",
     "administradora": "Santander",
@@ -914,7 +934,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Patrimônio Santander"
   },
   {
@@ -932,9 +952,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 240.217"
   },
+
+  # 10. Mycon
   {
     "id": "ROMAR-MYCON-01",
     "administradora": "Mycon",
@@ -950,7 +972,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 07/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Saldo R$ 1.323.789"
   },
   {
@@ -968,7 +990,7 @@
     "transferencia": "Taxa R$ 3.200,00",
     "vencimento": "Dia 07/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Análise R$ 400"
   },
   {
@@ -986,7 +1008,7 @@
     "transferencia": "Taxa R$ 3.600,00",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Prazo Curto • 47 meses"
   },
   {
@@ -1004,9 +1026,11 @@
     "transferencia": "Taxa R$ 1.377,85",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada R$ 34.983"
   },
+
+  # 11. Volkswagen
   {
     "id": "ROMAR-VW-01",
     "administradora": "Volkswagen",
@@ -1022,7 +1046,7 @@
     "transferencia": "Taxa R$ 9.373,00",
     "vencimento": "Dia 15/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Utilitários & Médios"
   },
   {
@@ -1040,7 +1064,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "54 meses • Rápido"
   },
   {
@@ -1058,7 +1082,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada R$ 35.900"
   },
   {
@@ -1076,9 +1100,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 15/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada R$ 26.900"
   },
+
+  # 12. Magalu
   {
     "id": "ROMAR-MAGALU-01",
     "administradora": "Magalu",
@@ -1094,7 +1120,7 @@
     "transferencia": "Taxa R$ 18.900,00",
     "vencimento": "Dia 20/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "40% de Entrada"
   },
   {
@@ -1112,7 +1138,7 @@
     "transferencia": "Taxa R$ 11.885,00",
     "vencimento": "Dia 20/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Imóveis & Construção"
   },
   {
@@ -1130,9 +1156,11 @@
     "transferencia": "Taxa R$ 5.200,00",
     "vencimento": "Dia 20/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Curto Prazo • 43 meses"
   },
+
+  # 13. CNP Consórcios
   {
     "id": "ROMAR-CNP-01",
     "administradora": "CNP Consórcios",
@@ -1148,7 +1176,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada Menor que 30%"
   },
   {
@@ -1166,7 +1194,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada Baixa R$ 113.962"
   },
   {
@@ -1184,9 +1212,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 359.964"
   },
+
+  # 14. Gazin
   {
     "id": "ROMAR-GAZIN-01",
     "administradora": "Gazin",
@@ -1202,7 +1232,7 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 10/09",
     "categoria": "Destaque",
-    "destaque": true,
+    "destaque": True,
     "tag": "Saldo R$ 1.261.831"
   },
   {
@@ -1220,9 +1250,11 @@
     "transferencia": "Taxa R$ 2.000,00",
     "vencimento": "Dia 10/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Parcela R$ 1.013"
   },
+
+  # 15. Embracon
   {
     "id": "ROMAR-EMBRACON-01",
     "administradora": "Embracon",
@@ -1238,7 +1270,7 @@
     "transferencia": "Na Procuração",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Taxa Financeira 0,62% a.m"
   },
   {
@@ -1256,9 +1288,11 @@
     "transferencia": "Transferência Imediata",
     "vencimento": "Dia 21/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada Apenas R$ 35.000"
   },
+
+  # 16. Tradição
   {
     "id": "ROMAR-TRAD-01",
     "administradora": "Tradição",
@@ -1274,7 +1308,7 @@
     "transferencia": "Transferência GRÁTIS",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Transferência Grátis"
   },
   {
@@ -1292,9 +1326,11 @@
     "transferencia": "Transferência GRÁTIS",
     "vencimento": "Dia 10/09",
     "categoria": "Super Oferta",
-    "destaque": false,
+    "destaque": False,
     "tag": "Transferência Grátis"
   },
+
+  # 17. Remaza
   {
     "id": "ROMAR-REMAZA-01",
     "administradora": "Remaza",
@@ -1310,9 +1346,11 @@
     "transferencia": "Taxa R$ 17.424,00 (paga pelo crédito)",
     "vencimento": "Dia 10/09",
     "categoria": "Exclusiva",
-    "destaque": true,
+    "destaque": True,
     "tag": "Faz Capital de Giro / Interveniente"
   },
+
+  # 18. Disal & Canopus & Primo Rossi
   {
     "id": "ROMAR-DISAL-01",
     "administradora": "Disal",
@@ -1328,7 +1366,7 @@
     "transferencia": "Taxa R$ 8.000,00 (paga pelo crédito)",
     "vencimento": "Dia 20/09",
     "categoria": "Super Oferta",
-    "destaque": true,
+    "destaque": True,
     "tag": "Entrada 32% • Transf. Paga pelo Crédito"
   },
   {
@@ -1346,7 +1384,7 @@
     "transferencia": "Taxa R$ 7.711,20",
     "vencimento": "Dia 14/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Entrada 33%"
   },
   {
@@ -1364,7 +1402,12 @@
     "transferencia": "Taxa R$ 6.000,00",
     "vencimento": "Dia 18/09",
     "categoria": "Oportunidade",
-    "destaque": false,
+    "destaque": False,
     "tag": "Saldo R$ 575.253"
   }
 ]
+
+with open(r"c:\Projetos\Cerebro\ia\ajcapital_landing_page\cartas_ativas.json", "w", encoding="utf-8") as f:
+    json.dump(cartas, f, ensure_ascii=False, indent=2)
+
+print(f"Total de {len(cartas)} cartas reais salvas em cartas_ativas.json com sucesso!")
