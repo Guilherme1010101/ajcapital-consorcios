@@ -1,5 +1,23 @@
 [
   {
+    "id": "AJ-REAL-01",
+    "administradora": "União Catarinense",
+    "segmento": "Imóvel",
+    "titulo": "Crédito Imobiliário União Catarinense",
+    "credito_valor": 605000,
+    "credito_formatado": "R$ 605.000,00",
+    "entrada_valor": 229900,
+    "entrada_formatada": "R$ 229.900,00",
+    "parcelas": "217x de R$ 4.136,00",
+    "parcela_valor": 4136,
+    "prazo_meses": 217,
+    "transferencia": "Transferência Imediata",
+    "vencimento": "Dia 11/09",
+    "categoria": "Super Oferta",
+    "destaque": true,
+    "tag": "Aceita imóvel não averbado"
+  },
+  {
     "id": "AJ-IMOV-00",
     "administradora": "Caixa Consórcios",
     "segmento": "Imóvel",
