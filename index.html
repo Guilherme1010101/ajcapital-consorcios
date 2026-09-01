@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJ Capital | Cartas Contempladas Selecionadas (Imóveis & Automóveis)</title>
+  <meta name="description" content="Acesse oportunidades exclusivas em cartas de crédito contempladas para imóveis residenciais, comerciais e veículos. Transferência segura e imediata.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Three.js & GSAP CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand-logo">
+        <div class="logo-badge">AJ</div>
+        <div class="logo-text">
+          <h1>AJ CAPITAL</h1>
+          <span>CONSÓRCIOS & CRÉDITO</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Experiência 3D</a></li>
+        <li><a href="#vitrine">Cartas Contempladas</a></li>
+        <li><a href="#calculadora">Calculadora de Economia</a></li>
+        <li><a href="#seguranca">Segurança & Auditoria</a></li>
+        <li><a href="#faq">Dúvidas Frequentes</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://wa.me/5554981348292?text=Ol%C3%A1%21+Gostaria+de+falar+com+um+consultor+especialista+da+AJ+Capital." target="_blank" rel="noopener noreferrer" class="btn-gold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Falar com Especialista
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH REALISTIC LUXURY SHOWCASE & 3D PARTICLES -->
+  <header id="hero" class="hero-section">
+    <!-- Photorealistic Visual Showcase Layer -->
+    <div class="hero-visual-showcase">
+      <div id="hero-img-mansion" class="hero-showcase-slide active" style="background-image: url('assets/mansao_5m.jpg');">
+        <div class="showcase-tag-badge">
+          <span class="gold-dot"></span>
+          <span>Mansão Contemporânea • R$ 5.000.000,00</span>
+        </div>
+      </div>
+      <div id="hero-img-auto" class="hero-showcase-slide" style="background-image: url('assets/audi_q5.jpg');">
+        <div class="showcase-tag-badge">
+          <span class="gold-dot"></span>
+          <span>Audi Q5 Black Edition • 2026</span>
+        </div>
+      </div>
+      <!-- Golden Particles WebGL Canvas Layer -->
+      <div id="hero-canvas-container" class="hero-particles-canvas"></div>
+    </div>
+    <div class="hero-overlay-gradient"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>DISPONIBILIDADE EM TEMPO REAL</span>
+        </div>
+
+        <h1 class="hero-title">
+          Seu Patrimônio <span class="gold-text">Sem Pagar Juros Bancários</span>
+        </h1>
+
+        <p class="hero-description">
+          Acesso imediato às melhores cotas contempladas do Brasil. Adquira imóveis residenciais, comerciais, terrenos ou veículos com economia real de até 70% comparado a financiamentos tradicionais.
+        </p>
+
+        <!-- 3D Interactive Mode Switcher -->
+        <div class="hero-mode-switcher">
+          <button id="mode-imovel-btn" class="mode-btn active">
+            🏡 Oportunidades em Imóveis
+          </button>
+          <button id="mode-auto-btn" class="mode-btn">
+            🏎️ Oportunidades em Automóveis
+          </button>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#vitrine" class="btn-gold">
+            Ver Cartas Disponíveis
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#calculadora" class="btn-outline">
+            Simular Economia
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>+R$ 45M</h4>
+            <p>Em Créditos Liberados</p>
+          </div>
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Transferência Auditada</p>
+          </div>
+          <div class="stat-item">
+            <h4>24h a 72h</h4>
+            <p>Para Posse do Crédito</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VITRINE DE CARTAS CONTEMPLADAS -->
+  <section id="vitrine" class="section-showcase">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PORTFÓLIO EXCLUSIVO</span>
+        <h2 class="section-title">Cartas Contempladas Ativas</h2>
+        <p class="section-subtitle">
+          Cotas rigorosamente selecionadas e auditadas pelas maiores administradoras do país. Selecione abaixo para reservar antes que sejam alocadas.
+        </p>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="filter-bar-container">
+        <div class="filter-row-top">
+          <!-- Segment Pills -->
+          <div class="segment-pills">
+            <button class="pill-btn active" data-segment="Todos">Todos os Segmentos</button>
+            <button class="pill-btn" data-segment="Imóvel">🏡 Imóveis</button>
+            <button class="pill-btn" data-segment="Automóvel">🏎️ Automóveis</button>
+          </div>
+
+          <!-- Keyword Search -->
+          <div class="search-input-box">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="search-input" placeholder="Buscar por administradora, valor...">
+          </div>
+        </div>
+
+        <div class="filter-row-bottom">
+          <!-- Credit Range Slider -->
+          <div class="slider-group">
+            <label for="credit-slider">
+              <span>Faixa de Crédito Máximo:</span>
+              <span id="credit-slider-val">Até R$ 5.000.000,00</span>
+            </label>
+            <input type="range" id="credit-slider" class="range-slider" min="200000" max="5000000" step="100000" value="5000000">
+          </div>
+
+          <!-- Administradora Select -->
+          <div class="select-group">
+            <label for="admin-select">Administradora:</label>
+            <select id="admin-select" class="custom-select">
+              <option value="Todas">Todas as Administradoras</option>
+              <option value="HS Consórcios">HS Consórcios</option>
+              <option value="Porto Seguro">Porto Seguro</option>
+              <option value="Caixa Consórcios">Caixa Consórcios</option>
+              <option value="Rodobens">Rodobens</option>
+              <option value="Itaú Consórcios">Itaú Consórcios</option>
+              <option value="Santander">Santander</option>
+              <option value="Banco do Brasil">Banco do Brasil</option>
+              <option value="Yamaha / Porto">Yamaha</option>
+            </select>
+          </div>
+
+          <!-- Ordenação Select -->
+          <div class="select-group">
+            <label for="order-select">Ordenar por:</label>
+            <select id="order-select" class="custom-select">
+              <option value="maior_credito">Maior Valor de Crédito</option>
+              <option value="menor_entrada">Menor Entrada</option>
+              <option value="menor_parcela">Menor Valor de Parcela</option>
+              <option value="menor_prazo">Menor Prazo Restante</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Count Info -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px;">
+        <span id="results-count" style="font-size: 14px; font-weight: 600; color: var(--gold-light);">Carregando oportunidades...</span>
+        <button onclick="resetFilters()" style="background: none; border: none; color: var(--text-dim); font-size: 13px; cursor: pointer; text-decoration: underline;">Limpar Filtros</button>
+      </div>
+
+      <!-- Dynamic Cards Grid -->
+      <div id="cards-grid" class="cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA DE ECONOMIA COMPARATIVA -->
+  <section id="calculadora" class="section-calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">INTELIGÊNCIA PATRIMONIAL</span>
+        <h2 class="section-title">Consórcio Contemplado vs Financiamento</h2>
+        <p class="section-subtitle">
+          Veja a diferença real no bolso entre adquirir uma carta contemplada da AJ Capital e assumir as taxas abusivas de juros compostos dos bancos tradicionais.
+        </p>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-grid">
+          <!-- Inputs -->
+          <div class="calc-inputs">
+            <div>
+              <label style="display: flex; justify-content: space-between; font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">
+                <span>Valor do Crédito Desejado:</span>
+                <strong id="calc-credit-display" style="color: var(--gold-light); font-size: 16px;">R$ 1.000.000,00</strong>
+              </label>
+              <input type="range" id="calc-credit" class="range-slider" min="200000" max="3000000" step="50000" value="1000000">
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">
+                Prazo Estimado de Pagamento:
+              </label>
+              <select id="calc-years" class="custom-select">
+                <option value="5">5 Anos (60 meses - Veículos / Imóveis Rápidos)</option>
+                <option value="10" selected>10 Anos (120 meses - Imóveis & Mansões)</option>
+                <option value="15">15 Anos (180 meses - Longo Prazo)</option>
+              </select>
+            </div>
+
+            <div style="font-size: 13px; color: var(--text-dim); line-height: 1.6; border-left: 2px solid var(--gold-primary); padding-left: 12px;">
+              * No financiamento bancário padrão (Tabela SAC 10.8% a.a. + Taxas), você paga o dobro do bem adquirido. Com a Carta Contemplada, seu custo total é travado e previsível.
+            </div>
+          </div>
+
+          <!-- Comparative Results -->
+          <div class="calc-results-box">
+            <div class="calc-row-comparison">
+              <div class="calc-comp-item">
+                <h5>Financiamento Bancário</h5>
+                <div id="calc-financ-total" class="val val-bad">R$ 1.850.000,00</div>
+                <span id="calc-financ-juros" style="font-size: 11px; color: #F87171;">+ R$ 850.000 em juros</span>
+              </div>
+
+              <div class="calc-comp-item highlight">
+                <h5>Carta Contemplada AJ Capital</h5>
+                <div id="calc-consorcio-total" class="val val-good">R$ 1.240.000,00</div>
+                <span style="font-size: 11px; color: var(--gold-primary);">Sem juros compostos</span>
+              </div>
+            </div>
+
+            <div class="calc-savings-banner">
+              <h4>Economia Direta no Seu Bolso</h4>
+              <div id="calc-savings-total" class="savings-amount">R$ 610.000,00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURANÇA & PROVA SOCIAL -->
+  <section id="seguranca" class="section-trust">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SEGURANÇA JURÍDICA</span>
+        <h2 class="section-title">Por Que a AJ Capital é a Escolha de Grandes Investidores</h2>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">🏛️</div>
+          <h4>Regulamentação BACEN</h4>
+          <p>Todas as administradoras parceiras são autorizadas e fiscalizadas rigorosamente pelo Banco Central do Brasil.</p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">📜</div>
+          <h4>Transferência em Cartório</h4>
+          <p>Processo de cessão de direitos formalizado direto na administradora, garantindo transparência e segurança jurídica integral.</p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">💎</div>
+          <h4>Cotas Auditadas</h4>
+          <p>Zero pendências financeiras. Verificamos histórico, saldo devedor e ata de contemplação antes da oferta.</p>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <h4>Faturamento Ágil</h4>
+          <p>Crédito liberado com velocidade recorde para você fechar a compra do seu imóvel ou veículo dos sonhos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="section-faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TRANSPARÊNCIA TOTAL</span>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>O que é uma Carta de Crédito Contemplada?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            É uma cota de consórcio que já foi sorteada ou contemplada por lance. O comprador assume o saldo devedor restante e passa a ter o poder de compra à vista imediatamente, sem precisar esperar sorteios futuros.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Como funciona a transferência da cota para o meu nome?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            A transferência é realizada diretamente junto à administradora do consórcio (ex: Porto Seguro, Caixa, HS Consórcios). Após a aprovação cadastral simples, o termo de cessão é assinado e a titularidade passa 100% para você.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Posso usar o crédito para qualquer imóvel ou veículo?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Sim! Para cotas imobiliárias, você pode adquirir casas, apartamentos, terrenos, imóveis comerciais, reformas ou construção. Para cotas de automóveis, veículos novos ou seminovos de qualquer marca.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Qual a forma de pagamento da entrada?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            O pagamento da entrada do ágio é realizado com total segurança, condicionado à formalização e validação da transferência junto à administradora.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">AJ</div>
+            <div class="logo-text">
+              <h1>AJ CAPITAL</h1>
+              <span>CONSÓRCIOS & CRÉDITO</span>
+            </div>
+          </div>
+          <p>
+            Especialistas em intermediação de cartas contempladas de alto padrão e soluções financeiras de alto impacto para aquisição patrimonial.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#hero">Experiência 3D</a></li>
+            <li><a href="#vitrine">Cartas Contempladas</a></li>
+            <li><a href="#calculadora">Calculadora</a></li>
+            <li><a href="#seguranca">Segurança BACEN</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Atendimento Oficial</h5>
+          <ul>
+            <li><span style="color: var(--text-dim);">WhatsApp:</span> (54) 98134-8292</li>
+            <li><span style="color: var(--text-dim);">Horário:</span> Seg a Sex - 08h às 19h</li>
+            <li><span style="color: var(--text-dim);">Atendimento:</span> Todo o território nacional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AJ Capital Consórcios. Todos os direitos reservados. Operações 100% em conformidade com as normas do BACEN.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/5554981348292?text=Ol%C3%A1%21+Vim+pelo+site+da+AJ+Capital+e+gostaria+de+consultar+cartas+contempladas+dispon%C3%ADveis." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+
+  <!-- JavaScript Application Files -->
+  <script src="scene3d.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
